@@ -1,4 +1,3 @@
-
 // ============================================================
 // test_queue.cpp - Bộ kiểm thử cho Queue và QueueEngine (TV4, BeautyStore)
 //
@@ -46,7 +45,16 @@ int lay(Queue& q) {
 // Gửi một lệnh cho Engine và so với kết quả mong đợi
 void kiemTraLenh(QueueEngine& engine, string lenh, string mongDoi) {
     string ketQua = engine.xuLyLenh(lenh);
-    kiemTra(ketQua == mongDoi, "Lenh \"" + lenh + "\" -> " + mongDoi);
+    // Khi in tên test, đổi ký tự '\r' thành chữ "\r" để dòng in ra không bị rối
+    string lenhIn = "";
+    for (int i = 0; i < (int)lenh.size(); i++) {
+        if (lenh[i] == '\r') {
+            lenhIn += "\\r";
+        } else {
+            lenhIn += lenh[i];
+        }
+    }
+    kiemTra(ketQua == mongDoi, "Lenh \"" + lenhIn + "\" -> " + mongDoi);
 }
 
 // ============================================================
