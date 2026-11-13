@@ -26,3 +26,5 @@ int main() {
 
     return 0;
 }
+// cách chạy pass 2 câu này g++ -std=c++17 queue-engine/tests/test_queue.cpp -o test_queue.exe
+// .\test_queue.exe
